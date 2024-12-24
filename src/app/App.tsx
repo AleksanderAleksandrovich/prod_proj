@@ -10,7 +10,7 @@ import { AppRouter } from "app/providers/router";
 const App = () => {
   const { theme, toggleTheme } = useTheme();
   return (
-    <div className={classNames("app", {}, [theme])}>
+    <div className={classNames("App", {}, [theme])}>
       <Navbar />
       <button onClick={toggleTheme}>Тема</button>
 
