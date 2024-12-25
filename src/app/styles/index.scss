@@ -13,3 +13,12 @@
 
   min-height: 100vh;
 }
+
+.Content-page {
+  display: flex;
+}
+
+.Page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
+}
