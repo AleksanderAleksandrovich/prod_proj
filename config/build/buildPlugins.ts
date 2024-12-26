@@ -8,12 +8,16 @@ import type { Options } from "./types/config";
 
 export function buildPlugins({
   paths,
+  isDev,
 }: Options): webpack.WebpackPluginInstance[] {
   return [
     new HtmlWebpackPlugin({
       template: paths.html,
     }),
     new webpack.ProgressPlugin(),
-    new MiniCssExtractPlugin({filename: 'css/[name].[contenthash:8].css'}),
+    new MiniCssExtractPlugin({ filename: "css/[name].[contenthash:8].css" }),
+    new webpack.DefinePlugin({
+      __IS_DEV__: isDev,
+    }),
   ];
 }
