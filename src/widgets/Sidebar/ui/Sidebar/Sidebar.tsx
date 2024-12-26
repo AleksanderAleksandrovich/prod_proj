@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import { Button } from "shared/ui/Button/Button";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
+import { LangSwitcher } from "widgets/LangSwitcher";
 
 type SidebarProps = {
   className?: string;
@@ -27,6 +28,7 @@ export const Sidebar = ({ className }: SidebarProps) => {
       <Button onClick={onToggled}>toggle</Button>
       <div className={classes.switchers}>
         <ThemeSwitcher />
+        <LangSwitcher className={classes.lang} />
       </div>
     </div>
   );
