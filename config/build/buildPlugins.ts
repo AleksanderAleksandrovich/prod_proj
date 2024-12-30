@@ -6,6 +6,8 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 
 import type { Options } from "./types/config";
 
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+
 export function buildPlugins({
   paths,
   isDev,
@@ -19,5 +21,7 @@ export function buildPlugins({
     new webpack.DefinePlugin({
       __IS_DEV__: isDev,
     }),
+    new webpack.HotModuleReplacementPlugin(),
+    new ReactRefreshWebpackPlugin(),
   ];
 }
