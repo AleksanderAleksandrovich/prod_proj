@@ -11,6 +11,14 @@ export function buildLoaders({ isDev }: Options): webpack.RuleSetRule[] {
     use: ["@svgr/webpack"],
   };
 
+  const babelLoader = {
+    test: /\.(js|jsx|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+    },
+  };
+
   const fileLoader = {
     test: /\.(png|jpe?g|gif)$/i,
     use: [
@@ -44,5 +52,5 @@ export function buildLoaders({ isDev }: Options): webpack.RuleSetRule[] {
       "sass-loader",
     ],
   };
-  return [tsLoader, cssLoader, svgLoader, fileLoader];
+  return [cssLoader, svgLoader, fileLoader, babelLoader, tsLoader];
 }
