@@ -17,8 +17,8 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
   };
   return (
     <Button
-      onClick={toggle}
       className={classNames(classes.LangSwitcher, {}, [className])}
+      onClick={toggle}
     >
       {t("язык")}
     </Button>
