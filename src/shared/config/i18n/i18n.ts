@@ -15,9 +15,11 @@ i18n
   .init({
     fallbackLng: "ru",
     debug: __IS_DEV__,
-
     interpolation: {
       escapeValue: false,
+    },
+    backend: {
+      loadPath: "/public/locales/{{lng}}/{{ns}}.json",
     },
   });
 
