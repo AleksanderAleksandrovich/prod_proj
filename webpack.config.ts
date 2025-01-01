@@ -9,6 +9,7 @@ export default (env: BuildEnv) => {
   const paths: BuildPaths = {
     build: path.resolve(__dirname, "build"),
     html: path.resolve(__dirname, "public", "index.html"),
+    locales: path.resolve(__dirname, "public", "locales"),
     entry: path.resolve(__dirname, "src", "index.tsx"),
     src: path.resolve(__dirname, "src"),
   };

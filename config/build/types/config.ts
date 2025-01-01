@@ -5,6 +5,7 @@ export type BuildPaths = {
   entry: string;
   build: string;
   src: string;
+  locales: string;
 };
 
 export type Options = {
