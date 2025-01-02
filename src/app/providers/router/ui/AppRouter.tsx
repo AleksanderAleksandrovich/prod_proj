@@ -1,3 +1,4 @@
+import { BugButton } from "app/providers/ErrorBoundary";
 import { Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
 import { RouteConfig } from "shared/config/routeConfig/routeConfig";
@@ -11,6 +12,7 @@ export const AppRouter = () => {
           element={
             <div className="Page-wrapper">
               <Suspense fallback={<PageLoader />}>{element}</Suspense>
+              <BugButton />
             </div>
           }
           key={route}
