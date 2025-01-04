@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import classes from "./Navbar.module.scss";
 
 import { classNames } from "shared/lib/classNames/classNames";
@@ -9,6 +10,7 @@ type NavbarProps = {
 };
 
 export const Navbar = ({ className }: NavbarProps) => {
+  const { t } = useTranslation();
   return (
     <div className={classNames(classes.Navbar, {}, [className])}>
       <div className={classNames(classes.links)}>
@@ -17,10 +19,10 @@ export const Navbar = ({ className }: NavbarProps) => {
           theme={AppLinkTheme.INVERTED}
           to="/"
         >
-          домой
+          {t("домой")}
         </AppLink>
         <AppLink theme={AppLinkTheme.INVERTED} to="/about">
-          инфа
+          {t("инфа")}
         </AppLink>
       </div>
     </div>
