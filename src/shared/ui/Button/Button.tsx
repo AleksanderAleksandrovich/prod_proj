@@ -19,6 +19,7 @@ export const Button = ({
   return (
     <button
       className={classNames(classes.Button, {}, [className, classes[theme]])}
+      type="button"
       {...otherProps}
     >
       {children}
