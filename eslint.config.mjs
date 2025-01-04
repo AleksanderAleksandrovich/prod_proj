@@ -7,8 +7,6 @@ import i18next from "eslint-plugin-i18next";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  // { files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"] },
-
   { ignores: ["node_modules", "build"] },
 
   { languageOptions: { globals: globals.browser } },
@@ -31,6 +29,13 @@ export default [
       "@stylistic/jsx/jsx-one-expression-per-line": "off",
       "@stylistic/jsx/jsx-max-props-per-line": "warn",
       "@stylistic/jsx/jsx-newline": "off",
+    },
+  },
+
+  {
+    files: ["**/*.test.{ts,tsx}"],
+    rules: {
+      "i18next/no-literal-string": "off",
     },
   },
 ];
