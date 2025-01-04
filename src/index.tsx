@@ -10,8 +10,9 @@ import { ProviderTheme } from "app/providers/ThemeProvider";
 
 import { ErrorBoundary } from "app/providers/ErrorBoundary";
 
-import "shared/config/i18n/i18n";
 import { PageError } from "widgets/PageError";
+
+import "shared/config/i18n/i18n";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
