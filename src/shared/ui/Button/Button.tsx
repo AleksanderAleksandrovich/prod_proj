@@ -4,6 +4,7 @@ import { classNames } from "shared/lib/classNames/classNames";
 
 export enum ThemeButton {
   CLEAR = "clear",
+  OUTLINE = "outline",
 }
 
 type ButtonProps = {
@@ -13,7 +14,7 @@ type ButtonProps = {
 export const Button = ({
   children,
   className,
-  theme = ThemeButton.CLEAR,
+  theme,
   ...otherProps
 }: ButtonProps) => {
   return (

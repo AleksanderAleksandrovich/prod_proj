@@ -1,7 +1,8 @@
+import { useState } from "react";
+
 import classes from "./Sidebar.module.scss";
 import { classNames } from "shared/lib/classNames/classNames";
 
-import { useState } from "react";
 
 import { Button } from "shared/ui/Button/Button";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
