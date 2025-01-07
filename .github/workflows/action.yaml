@@ -2,34 +2,34 @@ name: linting, testing, building
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
-    branches: [main]
+    branches: [ main ]
   pull_request:
-    branches: [main]
+    branches: [ main ]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [20]
+        node_version: [ 20 ]
 
-      steps:
-        - uses: actions/checkout@v4
-        - name: Install pnpm
-          uses: pnpm/action-setup@v4
-          with:
-            version: 10
-        - name: Use Node.js ${{ matrix.node-version }}
-          uses: actions/setup-node@v4
-          with:
-            node-version: ${{ matrix.node-version }}
-            cache: "pnpm"
-        - name: Install dependencies
-          run: pnpm install
-        - name: build proj
-          run: pnpm run build:prod
-        - name: linting ts
-          run: pnpm run lint
-        - name: linting scss
-          run: pnpm run lint:scss
-        - name: linting scss
-          run: pnpm run test:unit
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
+      - name: build proj
+        run: pnpm run build:prod
+      - name: linting ts
+        run: pnpm run lint
+      - name: linting scss
+        run: pnpm run lint:scss
+      - name: linting scss
+        run: pnpm run test:unit
