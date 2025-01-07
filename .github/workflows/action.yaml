@@ -31,5 +31,5 @@ jobs:
         run: pnpm run lint
       - name: linting scss
         run: pnpm run lint:scss
-      - name: linting scss
+      - name: testing unit
         run: pnpm run test:unit
