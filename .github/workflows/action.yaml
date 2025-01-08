@@ -2,15 +2,15 @@ name: linting, testing, building
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 jobs:
   pipeline:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node_version: [ 20 ]
+        node_version: [20]
 
     steps:
       - uses: actions/checkout@v4
@@ -33,3 +33,7 @@ jobs:
         run: pnpm run lint:scss
       - name: testing unit
         run: pnpm run test:unit
+      - name: storybook build
+        run: pnpm run storybook:build
+      - name: loki test
+        run: pnpm run test:ui:ci
