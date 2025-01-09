@@ -28,7 +28,7 @@ jobs:
       - name: build proj
         run: pnpm run build:prod
       - name: linting ts
-        run: pnpm run lint
+        run: pnpm run lint:ts
       - name: linting scss
         run: pnpm run lint:scss
       - name: testing unit
