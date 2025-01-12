@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button, ButtonSize, ButtonTheme } from "./Button";
-import { StyleDecorators } from "shared/lib/tests/StyleDecorator/StyleDecorator";
+import { StyleDecorator } from "shared/lib/tests/StyleDecorator/StyleDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
 const meta = {
@@ -34,7 +34,6 @@ export const ClearInverted: Story = {
   },
 };
 
-
 export const OutlineSizeM: Story = {
   args: {
     children: "text",
@@ -62,7 +61,7 @@ export const OutlineDark: Story = {
     children: "text",
     theme: ButtonTheme.OUTLINE,
   },
-  decorators: [StyleDecorators(Theme.Dark)],
+  decorators: [StyleDecorator(Theme.Dark)],
 };
 
 export const BackgroundTheme: Story = {

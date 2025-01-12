@@ -8,19 +8,20 @@ import {
 
 type ProviderThemeProps = {
   children?: React.ReactNode;
+  initialTheme?: Theme;
 };
 
 const defaultTheme =
   (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || Theme.Light;
 
-export const ProviderTheme = ({ children }: ProviderThemeProps) => {
-  const [theme, setTheme] = useState<Theme>(defaultTheme);
+export const ProviderTheme = ({
+  children,
+  initialTheme,
+}: ProviderThemeProps) => {
+  const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
 
   const defaultProp = useMemo(() => ({ theme, setTheme }), [theme]);
 
-  useEffect(() => {
-    document.body.className = theme;
-  }, [theme]);
 
   return (
     <ThemeContext.Provider value={defaultProp}>

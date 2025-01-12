@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { AppLink, AppLinkTheme } from "./AppLink";
-import { StyleDecorators } from "shared/lib/tests/StyleDecorator/StyleDecorator";
+import { StyleDecorator } from "shared/lib/tests/StyleDecorator/StyleDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
 const meta = {
@@ -25,7 +25,7 @@ export const Dark: Story = {
   args: {
     children: "Text",
   },
-  decorators: [StyleDecorators(Theme.Dark)],
+  decorators: [StyleDecorator(Theme.Dark)],
 };
 export const InvertedLight: Story = {
   args: {
@@ -38,5 +38,5 @@ export const InvertedDark: Story = {
     children: "Text",
     theme: AppLinkTheme.INVERTED,
   },
-  decorators: [StyleDecorators(Theme.Dark)],
+  decorators: [StyleDecorator(Theme.Dark)],
 };

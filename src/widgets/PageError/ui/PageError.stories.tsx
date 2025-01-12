@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { PageError } from "./PageError";
-import { StyleDecorators } from "shared/lib/tests/StyleDecorator/StyleDecorator";
+import { StyleDecorator } from "shared/lib/tests/StyleDecorator/StyleDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
 const meta = {
@@ -19,5 +19,5 @@ export const Light: Story = {
 };
 export const Dark: Story = {
   args: {},
-  decorators: [StyleDecorators(Theme.Dark)],
+  decorators: [StyleDecorator(Theme.Dark)],
 };

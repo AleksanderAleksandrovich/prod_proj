@@ -4,15 +4,16 @@
 @import "./variables/global";
 @import "./fonts";
 
-body,
-.appForTest {
+.App {
+  background-color: var(--bg-color);
+  min-height: 100vh;
   color: var(--color-primary);
   font: var(--font-m);
 }
 
-.App {
-  background-color: var(--bg-color);
-  min-height: 100vh;
+.appForTest{
+  color: var(--color-primary);
+  font: var(--font-m);
 }
 
 .Content-page {
