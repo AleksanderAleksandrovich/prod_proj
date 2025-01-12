@@ -6,13 +6,6 @@ import path from "path";
 import { BuildPaths } from "../build/types/config";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
 
-function hasTestString(value: unknown): value is { test: string } {
-  return (
-    typeof value === "object" &&
-    value !== null &&
-    typeof (value as { test: string }).test === "string"
-  );
-}
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
     build: "",

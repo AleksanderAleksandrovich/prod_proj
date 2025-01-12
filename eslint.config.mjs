@@ -4,10 +4,11 @@ import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import stylisticJSX from "@stylistic/eslint-plugin-jsx";
 import i18next from "eslint-plugin-i18next";
+import reactHook from "eslint-plugin-react-hooks";
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  { ignores: ["node_modules", "build"] },
+  { ignores: ["node_modules", "build", "storybook-static"] },
 
   { languageOptions: { globals: globals.browser } },
 
@@ -20,7 +21,14 @@ export default [
 
   stylisticJSX.configs["all-flat"],
   {
+    plugins: {
+      "react-hooks": reactHook,
+    },
+  },
+
+  {
     rules: {
+      ...reactHook.configs.recommended.rules,
       "react/react-in-jsx-scope": "off",
       "@typescript-eslint/no-unused-vars": "warn",
 
