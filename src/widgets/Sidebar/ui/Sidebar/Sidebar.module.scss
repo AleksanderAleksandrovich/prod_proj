@@ -42,7 +42,7 @@
 .link {
   opacity: 1;
   width: 55px;
-  transition: all 0.3s;
+  transition: width 0.3s, opacity 0.3s;
 }
 
 .icon {

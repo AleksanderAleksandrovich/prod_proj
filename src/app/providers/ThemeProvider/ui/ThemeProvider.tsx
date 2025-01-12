@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import {
   LOCAL_STORAGE_THEME_KEY,
@@ -17,6 +17,10 @@ export const ProviderTheme = ({ children }: ProviderThemeProps) => {
   const [theme, setTheme] = useState<Theme>(defaultTheme);
 
   const defaultProp = useMemo(() => ({ theme, setTheme }), [theme]);
+
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={defaultProp}>
