@@ -1,16 +1,18 @@
 import { useState } from "react";
 
+import { useTranslation } from "react-i18next";
+
 import classes from "./Sidebar.module.scss";
 import { classNames } from "shared/lib/classNames/classNames";
 
-import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
 import { ThemeSwitcher } from "widgets/ThemeSwitcher";
 import { LangSwitcher } from "widgets/LangSwitcher";
-import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
-import { useTranslation } from "react-i18next";
 import { RoutePath } from "shared/config/routeConfig/routeConfig";
+import { Button, ButtonSize, ButtonTheme } from "shared/ui/Button/Button";
+import { AppLink, AppLinkTheme } from "shared/ui/AppLink/AppLink";
 import Info from "shared/assets/icons/Info.svg";
 import Main from "shared/assets/icons/Main.svg";
+
 type SidebarProps = {
   className?: string;
 };

@@ -6,7 +6,6 @@ type CustomParameters = {
   theme?: Theme;
 };
 
-// eslint-disable-next-line react/display-name
 export const StyleDecorator = (
   Story: StoryFn,
   context: StoryContext<CustomParameters>

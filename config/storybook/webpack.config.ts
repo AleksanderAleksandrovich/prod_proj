@@ -1,10 +1,19 @@
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-nocheck
-import webpack from "webpack";
+import webpack, { RuleSetRule } from "webpack";
 import path from "path";
 
 import { BuildPaths } from "../build/types/config";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
+
+function isRuleWithTest(
+  rule: RuleSetRule | "..."
+): rule is RuleSetRule & { test: RegExp } {
+  return (
+    typeof rule === "object" &&
+    rule !== null &&
+    "test" in rule &&
+    rule.test instanceof RegExp
+  );
+}
 
 export default ({ config }: { config: webpack.Configuration }) => {
   const paths: BuildPaths = {
@@ -19,7 +28,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config.resolve?.extensions?.push(".ts", ".tsx");
 
   config.module.rules = config.module.rules.map((rule) => {
-    if (/svg/.test(rule.test)) {
+    if (isRuleWithTest(rule) && /svg/.test(rule.test.toString())) {
       return { ...rule, exclude: /\.svg$/i };
     }
     return rule;
