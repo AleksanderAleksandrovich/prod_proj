@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Modal } from "./Modal";
-import { StyleDecorator } from "shared/lib/tests/StyleDecorator/StyleDecorator";
 import { Theme } from "app/providers/ThemeProvider";
 
 const meta = {
@@ -27,5 +26,7 @@ export const Dark: Story = {
     isOpen: true,
   },
 
-  decorators: [ StyleDecorator(Theme.Dark)],
+  parameters: {
+    theme: Theme.Dark,
+  },
 };

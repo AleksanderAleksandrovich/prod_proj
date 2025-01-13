@@ -11,8 +11,9 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
+    theme: Theme.Light,
   },
-  decorators: [StyleDecorator(Theme.Light), RouterDecorator],
+  decorators: [StyleDecorator, RouterDecorator],
 };
 
 export default preview;

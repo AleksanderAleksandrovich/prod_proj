@@ -1,12 +1,20 @@
-import { StoryFn } from "@storybook/react/*";
+import { StoryContext, StoryFn } from "@storybook/react/*";
 import { ProviderTheme, Theme } from "app/providers/ThemeProvider";
 import "app/styles/index.scss";
 
+type CustomParameters = {
+  theme?: Theme;
+};
+
 // eslint-disable-next-line react/display-name
-export const StyleDecorator = (theme: Theme) => (Story: StoryFn) => {
+export const StyleDecorator = (
+  Story: StoryFn,
+  context: StoryContext<CustomParameters>
+) => {
+  const theme = context.parameters.theme;
   return (
     <ProviderTheme initialTheme={theme}>
-      <div className={`appForTest ${theme}`}>
+      <div className="App">
         <Story />
       </div>
     </ProviderTheme>
