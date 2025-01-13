@@ -22,6 +22,9 @@ export const ProviderTheme = ({
 
   const defaultProp = useMemo(() => ({ theme, setTheme }), [theme]);
 
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={defaultProp}>
