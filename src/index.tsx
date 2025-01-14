@@ -12,6 +12,8 @@ import { ProviderTheme } from "app/providers/ThemeProvider";
 
 import { ErrorBoundary } from "app/providers/ErrorBoundary";
 
+import { StoreProvider } from "app/providers/StoreProvider";
+
 import { PageError } from "widgets/PageError";
 
 import "shared/config/i18n/i18n";
@@ -22,9 +24,11 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <ErrorBoundary fallback={<PageError />}>
-        <ProviderTheme>
-          <App />
-        </ProviderTheme>
+        <StoreProvider>
+          <ProviderTheme>
+            <App />
+          </ProviderTheme>
+        </StoreProvider>
       </ErrorBoundary>
     </BrowserRouter>
   </React.StrictMode>
