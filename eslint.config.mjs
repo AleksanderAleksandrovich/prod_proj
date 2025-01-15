@@ -46,4 +46,11 @@ export default [
       "i18next/no-literal-string": "off",
     },
   },
+  {
+    files: ["**/*.js"],
+    rules: {
+      "@typescript-eslint/no-require-imports": "off",
+      "no-undef": "off",
+    },
+  },
 ];
