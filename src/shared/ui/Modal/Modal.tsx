@@ -7,11 +7,19 @@ type ModalProps = {
   children?: React.ReactNode;
   className?: string;
   isOpen?: boolean;
+  lazy?: boolean;
   onClose?: () => void;
 };
 
-export const Modal = ({ children, className, isOpen, onClose }: ModalProps) => {
+export const Modal = ({
+  children,
+  className,
+  isOpen,
+  onClose,
+  lazy,
+}: ModalProps) => {
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
   const closeHandler = useCallback(() => {
@@ -41,6 +49,12 @@ export const Modal = ({ children, className, isOpen, onClose }: ModalProps) => {
 
   useEffect(() => {
     if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (isOpen) {
       window.addEventListener("keydown", onKeyDown);
     }
     return () => {
@@ -48,6 +62,10 @@ export const Modal = ({ children, className, isOpen, onClose }: ModalProps) => {
       window.removeEventListener("keydown", onKeyDown);
     };
   }, [isOpen, onKeyDown]);
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>
