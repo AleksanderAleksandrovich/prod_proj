@@ -4,8 +4,9 @@ import classes from "./Navbar.module.scss";
 import { classNames } from "shared/lib/classNames/classNames";
 
 import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { Modal } from "shared/ui/Modal/Modal";
 import { useCallback, useState } from "react";
+
+import { LoginModal } from "features/AuthByUsername";
 
 type NavbarProps = {
   className?: string;
@@ -30,10 +31,7 @@ export const Navbar = ({ className }: NavbarProps) => {
       >
         {t("войти")}
       </Button>
-      {/* eslint-disable-next-line i18next/no-literal-string */}
-      <Modal isOpen={isAuthModal} onClose={onCloseModal}>
-        что то
-      </Modal>
+      <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
     </div>
   );
 };
