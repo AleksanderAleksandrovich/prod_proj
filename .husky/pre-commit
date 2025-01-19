@@ -1,0 +1,5 @@
+pnpm run lint:ts
+pnpm run lint:scss
+pnpm run test:unit
+pnpm run storybook:build
+pnpm run test:ui:ci
