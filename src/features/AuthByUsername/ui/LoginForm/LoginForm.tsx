@@ -1,21 +1,18 @@
 import { memo, useCallback } from "react";
-
 import { useSelector } from "react-redux";
-
 import { useTranslation } from "react-i18next";
-
-import classes from "./LoginForm.module.scss";
-import { classNames } from "shared/lib/classNames/classNames";
-
-import { Button, ButtonTheme } from "shared/ui/Button/Button";
-import { Input } from "shared/ui/Input/Input";
 
 import { loginActions } from "../../model/slice/loginSlice";
 import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
+import classes from "./LoginForm.module.scss";
 
 import { useTypedDispatch } from "app/providers/StoreProvider/lib/useTypedDispatch";
+
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Text, TextTheme } from "shared/ui/Text/Text";
+import { Input } from "shared/ui/Input/Input";
+import { classNames } from "shared/lib/classNames/classNames";
 
 type LoginFormProps = {
   className?: string;
