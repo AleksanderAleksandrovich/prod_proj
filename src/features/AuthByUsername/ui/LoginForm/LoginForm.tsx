@@ -1,27 +1,54 @@
-import { Button } from "shared/ui/Button/Button";
+import { memo, useCallback } from "react";
+
+import { useSelector } from "react-redux";
+
+import { useTranslation } from "react-i18next";
+
 import classes from "./LoginForm.module.scss";
 import { classNames } from "shared/lib/classNames/classNames";
-import { useTranslation } from "react-i18next";
+
+import { Button, ButtonTheme } from "shared/ui/Button/Button";
 import { Input } from "shared/ui/Input/Input";
-import { useState } from "react";
+
+import { loginActions } from "../../model/slice/loginSlice";
+import { getLoginState } from "../../model/selectors/getLoginState/getLoginState";
+import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
+
+import { useTypedDispatch } from "app/providers/StoreProvider/lib/useTypedDispatch";
+import { Text, TextTheme } from "shared/ui/Text/Text";
 
 type LoginFormProps = {
   className?: string;
 };
 
-export const LoginForm = ({ className }: LoginFormProps) => {
+export const LoginForm = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const dispatch = useTypedDispatch();
 
-  const usernameHandler = (value: string) => {
-    setUsername(value);
-  };
-  const passwordHandler = (value: string) => {
-    setPassword(value);
-  };
+  const { username, password, isLoading, error } = useSelector(getLoginState);
+
+  const usernameHandler = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setUsername(value));
+    },
+    [dispatch]
+  );
+
+  const passwordHandler = useCallback(
+    (value: string) => {
+      dispatch(loginActions.setPassword(value));
+    },
+    [dispatch]
+  );
+
+  const onLogin = useCallback(() => {
+    dispatch(loginByUsername({ username, password }));
+  }, [dispatch, username, password]);
+
   return (
     <div className={classNames(classes.LoginForm, {}, [className])}>
+      <Text title={t("форма авторизации")} />
+      {error && <Text text={error} theme={TextTheme.ERROR} />}
       <Input
         autofocus
         className={classes.input}
@@ -37,7 +64,14 @@ export const LoginForm = ({ className }: LoginFormProps) => {
         type="text"
         value={password}
       />
-      <Button className={classes.loginButton}>{t("войти")}</Button>
+      <Button
+        className={classes.loginButton}
+        disabled={isLoading}
+        onClick={onLogin}
+        theme={ButtonTheme.OUTLINE}
+      >
+        {t("войти")}
+      </Button>
     </div>
   );
-};
+});

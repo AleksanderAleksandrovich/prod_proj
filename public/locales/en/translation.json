@@ -9,5 +9,7 @@
   "короткий язык": "En",
   "войти": "LogIn",
   "введите пароль": "Password",
-  "введите логин": "Login"
+  "введите логин": "Login",
+  "форма авторизации": "Form authorization",
+  "вы ввели неверный логин или пароль": "You entered an incorrect login or password"
 }
