@@ -40,7 +40,6 @@ export const Input = memo(
     const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
       onChange?.(e.target.value);
       setCaretPosition(e.target.selectionStart);
-      console.log(e.target.value.length);
     };
 
     const onFocus = () => {
@@ -53,7 +52,6 @@ export const Input = memo(
 
     const onSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
       setCaretPosition(e.target.selectionStart);
-      console.log("first");
     };
     return (
       <div className={classNames(classes.InputWrapper, {}, [className])}>
