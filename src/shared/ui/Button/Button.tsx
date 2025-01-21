@@ -27,16 +27,18 @@ export const Button = ({
   className,
   theme,
   square,
+  disabled,
   size = ButtonSize.M,
   ...otherProps
 }: ButtonProps) => {
   return (
     <button
-      className={classNames(classes.Button, { [classes.square]: square }, [
-        className,
-        classes[theme],
-        classes[size],
-      ])}
+      className={classNames(
+        classes.Button,
+        { [classes.square]: square, [classes.disabled]: disabled },
+        [className, classes[theme], classes[size]]
+      )}
+      disabled={disabled}
       type="button"
       {...otherProps}
     >
