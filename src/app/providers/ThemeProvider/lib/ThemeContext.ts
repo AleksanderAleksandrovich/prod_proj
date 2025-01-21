@@ -12,4 +12,4 @@ type ContextProps = {
 
 export const ThemeContext = createContext<ContextProps>({});
 
-export const LOCAL_STORAGE_THEME_KEY = "theme";
+
