@@ -24,23 +24,17 @@ export const LoginForm = memo(({ className }: LoginFormProps) => {
 
   const { username, password, isLoading, error } = useSelector(getLoginState);
 
-  const usernameHandler = useCallback(
-    (value: string) => {
-      dispatch(loginActions.setUsername(value));
-    },
-    [dispatch]
-  );
+  const usernameHandler = useCallback((value: string) => {
+    dispatch(loginActions.setUsername(value));
+  }, []);
 
-  const passwordHandler = useCallback(
-    (value: string) => {
-      dispatch(loginActions.setPassword(value));
-    },
-    [dispatch]
-  );
+  const passwordHandler = useCallback((value: string) => {
+    dispatch(loginActions.setPassword(value));
+  }, []);
 
   const onLogin = useCallback(() => {
     dispatch(loginByUsername({ username, password }));
-  }, [dispatch, username, password]);
+  }, [username, password, dispatch]);
 
   return (
     <div className={classNames(classes.LoginForm, {}, [className])}>

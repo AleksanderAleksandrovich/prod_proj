@@ -12,6 +12,11 @@ const preview: Preview = {
       },
     },
     theme: Theme.Light,
+    initialState: {
+      login: { isLoading: false, username: "sdf", password: "sdf" },
+      counter: { value: 10 },
+      user: { authData: undefined },
+    },
   },
   decorators: [StyleDecorator, RouterDecorator],
 };
